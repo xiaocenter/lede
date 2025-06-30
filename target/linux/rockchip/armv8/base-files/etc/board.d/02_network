@@ -10,6 +10,7 @@ rockchip_setup_interfaces()
 	case "$board" in
 	advantech,rsb4810|\
 	ariaboard,photonicat|\
+	ariaboard,photonicat2|\
 	dilusense,dlfr100|\
 	ezpro,mrkaio-m68s|\
 	ezpro,mrkaio-m68s-plus|\
@@ -59,7 +60,7 @@ rockchip_setup_interfaces()
 		;;
 	hinlink,opc-h69k|\
 	friendlyarm,nanopi-r5s)
-		ucidef_set_interfaces_lan_wan "eth1 eth2" "eth0"
+		ucidef_set_interfaces_lan_wan 'eth1 eth2' 'eth0'
 		;;
 	lyt,t68m)
 		ucidef_set_interfaces_lan_wan 'lan2 lan3 lan4' 'lan1'
@@ -99,8 +100,10 @@ rockchip_setup_macs()
 	local label_mac=""
 
 	case "$board" in
+	armsom,sige*|\
 	advantech,rsb4810|\
 	ariaboard,photonicat|\
+	ariaboard,photonicat2|\
 	codinge,xiaobao-nas-v1|\
 	dilusense,dlfr100|\
 	ezpro,mrkaio-m68s|\
@@ -122,17 +125,10 @@ rockchip_setup_macs()
 	rumu3f,fine-3399|\
 	seewo,srcm3588-*|\
 	sharevdi,h3399pc|\
+	widora,mangopi-m28k|\
+	widora,mangopi-m28k-pro|\
 	xunlong,orangepi-5-plus)
 		wan_mac=$(macaddr_generate_from_mmc_cid mmcblk0)
-		lan_mac=$(macaddr_add "$wan_mac" +1)
-		;;
-	armsom,sige1|\
-	armsom,sige3|\
-	armsom,sige5|\
-	armsom,sige7|\
-	widora,mangopi-m28k|\
-	widora,mangopi-m28k-pro)
-		wan_mac=$(macaddr_generate_from_mmc_cid mmcblk2)
 		lan_mac=$(macaddr_add "$wan_mac" +1)
 		;;
 	friendlyarm,nanopi-r4s|\

@@ -13,6 +13,7 @@ friendlyarm,nanopi-r2c|\
 friendlyarm,nanopi-r2c-plus|\
 friendlyarm,nanopi-r2s|\
 friendlyarm,nanopi-r2s-plus|\
+friendlyarm,nanopi-r4se|\
 friendlyarm,nanopi-r4s|\
 friendlyarm,nanopi-r6c|\
 sharevdi,guangmiao-g4c|\
@@ -57,6 +58,10 @@ hinlink,opc-ht2)
 radxa,e20c)
 	ucidef_set_led_netdev "lan" "LAN" "green:lan" "eth0"
 	ucidef_set_led_netdev "wan" "WAN" "green:wan" "eth1"
+	;;
+widora,mangopi-m28c)
+	ucidef_set_led_netdev "modem" "MODEM" "blue:modem" "usb0"
+	ucidef_set_led_netdev "wifi" "WIFI" "yellow:wifi" "wlan0"
 	;;
 widora,mangopi-m28k|\
 widora,mangopi-m28k-pro)

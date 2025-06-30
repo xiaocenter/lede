@@ -1,9 +1,9 @@
 From 4ae334127f073aa5f7c9209c9f0a17fd9e331db1 Mon Sep 17 00:00:00 2001
 From: Ziyang Huang <hzyitc@outlook.com>
 Date: Sun, 8 Sep 2024 16:40:12 +0800
-Subject: [PATCH 4/5] remoteproc: qcom_q6v5_mpd: support ipq5018
+Subject: [PATCH] remoteproc: qcom_q6v5_mpd: support ipq5018
 
-Signed-off-by: hzy <hzyitc@outlook.com>
+Signed-off-by: Ziyang Huang <hzyitc@outlook.com>
 ---
  drivers/remoteproc/qcom_q6v5_mpd.c | 37 +++++++++++++++++++++++++++---
  1 file changed, 34 insertions(+), 3 deletions(-)
@@ -88,8 +88,8 @@ Signed-off-by: hzy <hzyitc@outlook.com>
  			     wcss->mem_phys, wcss->mem_size,
  			     NULL);
  }
-@@ -777,6 +801,12 @@ static int q6_wcss_remove(struct platfor
- 	return 0;
+@@ -775,6 +799,12 @@ static void q6_wcss_remove(struct platfo
+ 	rproc_free(rproc);
  }
  
 +static const struct wcss_data q6_ipq5018_res_init = {
@@ -101,7 +101,7 @@ Signed-off-by: hzy <hzyitc@outlook.com>
  static const struct wcss_data q6_ipq5332_res_init = {
  	.pasid = MPD_WCNSS_PAS_ID,
  	.share_upd_info_to_q6 = true,
-@@ -787,6 +817,7 @@ static const struct wcss_data q6_ipq9574
+@@ -785,6 +815,7 @@ static const struct wcss_data q6_ipq9574
  };
  
  static const struct of_device_id q6_wcss_of_match[] = {
